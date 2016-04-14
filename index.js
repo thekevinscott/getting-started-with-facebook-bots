@@ -36,13 +36,14 @@ app.post('/webhook/', function (req, res) {
       var location = event.message.text;
       var weatherEndpoint = 'https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22' + location + '%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys';
       request({
-        url: weatherEndpoint
+        url: weatherEndpoint,
+        json: true
       }, function(error, response, body) {
         try {
-          var body = JSON.parse(response.body);
           var condition = body.query.results.channel.item.condition;
           sendTextMessage(sender, "Today is " + condition.temp + " and " + condition.text + " in " + location);
         } catch(err) {
+          console.error('error caught', err);
           sendTextMessage(sender, "There was an error.");
         }
       });
