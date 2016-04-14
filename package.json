@@ -4,7 +4,7 @@
   "description": "Repo for getting started with bots",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "ngrok": "./node_modules/ngrok/bin/ngrok http 5000"
   },
   "repository": {
     "type": "git",
@@ -17,9 +17,13 @@
     "wit.ai"
   ],
   "author": "Kevin Scott",
-  "license": "ISC",
+  "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/scottlabs/getting-started-with-facebook-bots/issues"
   },
-  "homepage": "https://github.com/scottlabs/getting-started-with-facebook-bots#readme"
+  "homepage": "https://github.com/scottlabs/getting-started-with-facebook-bots#readme",
+  "dependencies": {
+    "express": "4.13.4",
+    "ngrok": "2.1.7"
+  }
 }
