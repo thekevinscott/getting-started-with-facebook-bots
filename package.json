@@ -1,0 +1,25 @@
+{
+  "name": "getting-started-with-bots",
+  "version": "1.0.0",
+  "description": "Repo for getting started with bots",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scottlabs/getting-started-with-facebook-bots.git"
+  },
+  "keywords": [
+    "bots",
+    "facebook",
+    "hubot",
+    "wit.ai"
+  ],
+  "author": "Kevin Scott",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/scottlabs/getting-started-with-facebook-bots/issues"
+  },
+  "homepage": "https://github.com/scottlabs/getting-started-with-facebook-bots#readme"
+}
