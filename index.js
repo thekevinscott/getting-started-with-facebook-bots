@@ -42,12 +42,13 @@ app.post('/webhook/', function (req, res) {
 });
 
 function sendTextMessage(sender, text) {
+  var access_token ='<YOUR PAGE ACCESS TOKEN>';
   var messageData = {
     text:text
   }
   request({
     url: 'https://graph.facebook.com/v2.6/me/messages',
-    qs: {access_token:token},
+    qs: {access_token:access_token},
     method: 'POST',
     json: {
       recipient: {id:sender},
