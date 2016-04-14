@@ -1,6 +1,9 @@
 var token = '<YOUR TOKEN HERE>';
 var express = require('express');
 var app = express();
+var bodyParser = require('body-parser');
+
+app.use(bodyParser());
 
 app.get('/', function (req, res) {
   res.send('Hello world');
@@ -14,8 +17,9 @@ app.listen(5000, function () {
 app.get('/webhook/', function (req, res) {
   if (req.query['hub.verify_token'] === token) {
     res.send(req.query['hub.challenge']);
+  } else {
+    res.send('Error, wrong validation token');
   }
-  res.send('Error, wrong validation token');
 });
 
 // respond to post calls from facebook

@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/scottlabs/getting-started-with-facebook-bots#readme",
   "dependencies": {
+    "body-parser": "^1.15.0",
     "express": "4.13.4",
     "ngrok": "2.1.7"
   }
