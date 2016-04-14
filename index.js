@@ -20,21 +20,21 @@ app.get('/webhook/', function (req, res) {
 
 // respond to post calls from facebook
 app.post('/webhook/', function (req, res) {
-  messaging_events = req.body.entry[0].messaging;
+  var messaging_events = req.body.entry[0].messaging;
   for (i = 0; i < messaging_events.length; i++) {
-    event = req.body.entry[0].messaging[i];
-    sender = event.sender.id;
+    var event = req.body.entry[0].messaging[i];
+    var sender = event.sender.id;
     if (event.message && event.message.text) {
-      text = event.message.text;
-      console.log('You sent the message', text);
-      sendTextMessage(sender, "Text received, echo: "+ text.substring(0, 200));
+      var incomingText = event.message.text;
+      console.log('You sent the message', incomingText);
+      sendTextMessage(sender, "Text received, echo: "+ incomingText.substring(0, 200));
     }
   }
   res.sendStatus(200);
 });
 
 function sendTextMessage(sender, text) {
-  messageData = {
+  var messageData = {
     text:text
   }
   request({
