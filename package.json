@@ -4,6 +4,7 @@
   "description": "Repo for getting started with bots",
   "main": "index.js",
   "scripts": {
+    "dev": "node index.js",
     "ngrok": "./node_modules/ngrok/bin/ngrok http 5000"
   },
   "repository": {
