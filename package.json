@@ -4,7 +4,7 @@
   "description": "Repo for getting started with bots",
   "main": "index.js",
   "scripts": {
-    "dev": "node index.js",
+    "dev": "supervisor index.js",
     "ngrok": "./node_modules/ngrok/bin/ngrok http 5000"
   },
   "repository": {
@@ -27,6 +27,7 @@
     "body-parser": "^1.15.0",
     "express": "4.13.4",
     "ngrok": "2.1.7",
-    "request": "^2.71.0"
+    "request": "^2.71.0",
+    "supervisor": "^0.12.0"
   }
 }
