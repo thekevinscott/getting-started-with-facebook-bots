@@ -1,5 +1,5 @@
-var token = 'this-is-a-secret-token';
-var PAGE_ACCESS_TOKEN = 'PAGE_ACCESS_TOKEN';
+var VERIFY_TOKEN = '<YOUR_VERIFICATION_TOKEN>';
+var PAGE_ACCESS_TOKEN = '<YOUR_PAGE_ACCESS_TOKEN>';
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
@@ -19,13 +19,15 @@ app.listen(5000, function () {
 });
 
 // respond to facebook's verification
-app.get('/webhook/', function (req, res) {
-  console.log('query', req.query);
-  if (req.query['hub.verify_token'] === token) {
-    res.send(req.query['hub.challenge']);
+app.get('/webhook', function(req, res) {
+  if (req.query['hub.mode'] === 'subscribe' &&
+      req.query['hub.verify_token'] === VERIFY_TOKEN) {
+    console.log("Validating webhook");
+    res.status(200).send(req.query['hub.challenge']);
   } else {
-    res.send('Error, wrong validation token');
-  }
+    console.error("Failed validation. Make sure the validation tokens match.");
+    res.sendStatus(403);          
+  }  
 });
 
 // respond to post calls from facebook
